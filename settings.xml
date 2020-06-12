@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="333b3b92-bc99-4628-afcb-90672b2992ea" created="2.7.0" activeEnvironment="Default environment" name="REST Sample Project" resourceRoot="" updated="3.2.7" encryptionMode="Not encrypted" compositeProjectFormat="1.3" xmlns:con="http://eviware.com/soapui/config">
+  <con:description>Sample Projects bases on a virtualized REST service. Please make sure that port 8084 is available on your local machine or you can update the virtual API under the serviceV tool to reflect an open port on your system. You will also have to update the ports on the tests to reflect
+the same ports on the virtual service.</con:description>
+  <con:settings>
+    <con:setting id="333b3b92-bc99-4628-afcb-90672b2992eafileName">REST-Sample-Project</con:setting>
+  </con:settings>
+  <con:savedRecentRuns>1</con:savedRecentRuns>
+  <con:requirements/>
+  <con:properties/>
+  <con:wssContainer>
+    <con:crypto>
+      <con:id>38c42b5e-5fd1-4776-9558-33725f194803</con:id>
+      <con:source>//Mac/Home/Desktop/EJPi7KzVAAE-R02.jpg</con:source>
+      <con:password>Test</con:password>
+      <con:type>KEYSTORE</con:type>
+      <con:defaultAlias>Alias1</con:defaultAlias>
+      <con:aliasPassword>adfgdfgd</con:aliasPassword>
+    </con:crypto>
+    <con:crypto>
+      <con:id>7316007f-b292-4481-ada6-a9ccebadd615</con:id>
+      <con:source>//Mac/Home/Desktop/EJPi7KzVAAE-R02.jpg</con:source>
+      <con:password>fff</con:password>
+      <con:type>TRUSTSTORE</con:type>
+      <con:defaultAlias>fg</con:defaultAlias>
+      <con:aliasPassword>fgf</con:aliasPassword>
+    </con:crypto>
+    <con:incoming>
+      <con:name>Test Config</con:name>
+      <con:decryptCrypto xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+      <con:signatureCrypto xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+    </con:incoming>
+    <con:outgoing mustUnderstand="false" actor="Test name">
+      <con:name>Test WSS Config</con:name>
+      <con:username>Test name</con:username>
+      <con:password>Test name</con:password>
+      <con:entry type="Encryption">
+        <con:configuration/>
+      </con:entry>
+      <con:entry type="SAML (Form)">
+        <con:configuration/>
+      </con:entry>
+      <con:entry type="SAML (XML)">
+        <con:configuration/>
+      </con:entry>
+      <con:entry type="Signature">
+        <con:configuration/>
+      </con:entry>
+      <con:entry type="Timestamp">
+        <con:configuration/>
+      </con:entry>
+      <con:entry type="Username">
+        <con:configuration/>
+      </con:entry>
+      <con:usePredefinedOrder>false</con:usePredefinedOrder>
+    </con:outgoing>
+  </con:wssContainer>
+  <con:databaseConnectionContainer>
+    <con:databaseConnection>
+      <con:name>test</con:name>
+      <con:driver xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+      <con:connectionString xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+      <con:password/>
+      <con:connectionProperties/>
+    </con:databaseConnection>
+  </con:databaseConnectionContainer>
+  <con:jmsConnectionContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer>
+    <con:oAuth1Profile>
+      <con:name>TestOauth</con:name>
+      <con:type>OAuth 1.0</con:type>
+      <con:accessTokenPosition>QUERY</con:accessTokenPosition>
+    </con:oAuth1Profile>
+  </con:oAuth1ProfileContainer>
+  <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
+    <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
+// This code is often used for adding custom authentication to SoapUI Pro tests
+
+// If hardcoding the token, uncomment and change line 5
+// def token = '4567'
+
+// If your token is parameterized in Project level custom property, uncomment line 8
+// def token = request.parent.testCase.testSuite.project.getProperty('auth_token').getValue()
+
+// To modify all outgoing calls, remove comments from lines 11 to 16
+// def headers = request.requestHeaders
+// if (headers.containsKey('auth_token2') == false) {
+//   headers.put('auth_token2', token)
+//   request.requestHeaders = headers
+// }</con:script>
+  </con:eventHandlers>
+  <con:eventHandlers type="TestRunListener.afterStep" name="TestRunListener.afterStep">
+    <con:script>// Save all test step results into files
+// Change the directory path in line 5 to a location where you want to store details
+// then uncomment lines 5 to 10
+
+// filePath = 'C:\\tempOutputDirectory\\'
+// fos = new FileOutputStream(filePath + testStepResult.testStep.label + '.txt', true)
+// pw = new PrintWriter(fos)
+// testStepResult.writeTo(pw)
+// pw.close()
+// fos.close()</con:script>
+  </con:eventHandlers>
+  <con:authRepository>
+    <con:basicAuthEntry>
+      <con:name>TestBasicName</con:name>
+      <con:type>Basic</con:type>
+      <con:username>Test1</con:username>
+      <con:password>test1</con:password>
+      <con:domain>home</con:domain>
+      <con:preemptive>false</con:preemptive>
+    </con:basicAuthEntry>
+    <con:basicAuthEntry>
+      <con:name>TestBasicProfile1</con:name>
+      <con:type>Basic</con:type>
+    </con:basicAuthEntry>
+    <con:oAuth10AuthEntry>
+      <con:name>TestOauth</con:name>
+      <con:type>OAuth 1.0</con:type>
+      <con:accessTokenPosition>QUERY</con:accessTokenPosition>
+    </con:oAuth10AuthEntry>
+  </con:authRepository>
+  <con:tags/>
+</con:soapui-project>
