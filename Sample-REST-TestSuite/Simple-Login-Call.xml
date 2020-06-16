@@ -31,10 +31,11 @@ NOTE: If you would like to run the Login step without as a standalone step pleas
         <con:endpoint>http://localhost:8084</con:endpoint>
         <con:request>{"sample" : "1 "}</con:request>
         <con:originalUri>http://localhost/login</con:originalUri>
-        <con:assertion type="Valid HTTP Status Codes" id="54943923-c5d6-4a3d-a176-a7a20d56b664" name="Valid HTTP Status Codes">
+        <con:assertion type="Valid HTTP Status Codes" id="637512b3-6494-4f70-b279-7b70fe18a3f1" name="Valid HTTP Status Codes">
           <con:settings/>
           <con:configuration>
-            <codes>200</codes>
+            <codes>400
+500</codes>
           </con:configuration>
         </con:assertion>
         <con:credentials>
